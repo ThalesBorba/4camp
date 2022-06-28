@@ -5,14 +5,18 @@ import java.util.Objects;
 public class Cliente {
 
 	private String nome;
-	private Integer cpf;
+	private Long cpf;
 	
-	public Cliente(String nome, Integer cpf) {
+	public Cliente(String nome, Long cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
 	}
 
-	public Integer getCpf() {
+	public String getNome() {
+		return nome;
+	}
+
+	public Long getCpf() {
 		return cpf;
 	}
 }

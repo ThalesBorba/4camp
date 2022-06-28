@@ -13,7 +13,7 @@ public class Data {
 		return "Filme adicionado!";
 	}
 
-	public Cliente verificaCliente(Integer cpf) {
+	public Cliente verificaCliente(Long cpf) {
 		for (Cliente cliente: clientes.values()) {
 			if (cpf.equals(cliente.getCpf())) {
 				return cliente;
@@ -82,6 +82,14 @@ public class Data {
 		fitas.put(19, filme19);
 		fitas.put(20, filme20);
 		
+		}
+
+		static void populaClientes() {
+		Cliente cliente1 = new Cliente("Jose", 12345678912L);
+		Cliente cliente2 = new Cliente("Maria", 98765432198L);
+
+		clientes.put(1, cliente1);
+		clientes.put(2, cliente2);
 		}
 
 	}

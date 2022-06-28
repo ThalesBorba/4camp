@@ -12,9 +12,7 @@ public class Filme {
 		this.faixaEtaria = faixaEtaria;
 	}
 
-
-	
-	
-	
-	
+	public String getNome() {
+		return nome;
+	}
 }

@@ -30,15 +30,15 @@ public class Util {
         return faixaEtaria;
     }
 
-    public static Integer validaCpf(Scanner scanner) {
-        Integer cpfNumber;
+    public static Long validaCpf(Scanner scanner) {
+        Long cpfNumber;
         while (true) {
             String cpf = scanner.next();
             if (cpf.length() != 11) {
                 System.out.println("Cpf deve ter 11 dígitos!");
             } else {
                 try {
-                    cpfNumber = Integer.parseInt(cpf);
+                    cpfNumber = Long.parseLong(cpf);
                     break;
                 } catch (NumberFormatException e) {
                     System.out.println("Somente números!");

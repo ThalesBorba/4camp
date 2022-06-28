@@ -32,17 +32,21 @@ public class Communication {
 		Data data = new Data();
 
 		System.out.println("Digite seu cpf: ");
-		Integer cpf = Util.validaCpf(scanner);
+		Long cpf = Util.validaCpf(scanner);
 
 		Cliente cliente = null;
 		if (data.verificaCliente(cpf) == null) {
-			cliente = receDadosDeNovoCliente();
+			cliente = recebeNovoCliente(cpf);
+			System.out.println("Bem-vindo " + cliente.getNome());
 		} else {
 			cliente = data.verificaCliente(cpf);
+			System.out.println("Bem-vindo de volta " + cliente.getNome());
 		}
 
 		System.out.println("Digite o número da fita que deseja alugar: ");
 		Filme filme = Util.validaLocacao(scanner);
+
+		System.out.println("Você alugou o filme " + filme.getNome() + ". Bom divertimento!");
 
 		data.salvaLocacao(cliente, filme);
 
@@ -52,7 +56,7 @@ public class Communication {
 		Data data = new Data();
 
 		System.out.println("Qual � o nome do filme: ");
-		String nome = sc.next();
+		String nome = sc.nextLine();
 		System.out.println("Qual � o g�nero? \nOp��es: TERROR, ACAO, COMEDIA, ROMANCE, DRAMA, FICCAO_CIENTIFICA, FANTASIA"
 				+ "\nDigite:");
 		String genero = Util.validaGenero(sc);
@@ -68,15 +72,13 @@ public class Communication {
 		return filme;
 	}
 	
-	static Cliente receDadosDeNovoCliente() {
+	static Cliente recebeNovoCliente(Long cpf) {
 		Data data = new Data();
 
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Digite seu nome completo: ");
 		String nome = sc.nextLine();
-		System.out.println("Digite seu cpf (somente n�meros): ");
-		Integer cpf = Util.validaCpf(sc);
 		
 		Cliente cliente = new Cliente(nome, cpf);
 
