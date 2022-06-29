@@ -12,4 +12,9 @@ public class Remedio {
     public String getNome() {
         return nome;
     }
+
+    public Remedio(String nome, Boolean isControlado) {
+        this.nome = nome;
+        this.isControlado = isControlado;
+    }
 }
