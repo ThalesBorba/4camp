@@ -15,4 +15,8 @@ public enum Medico {
 
     Medico(int identicador, String nome) {
     }
+
+    String getNome() {
+        return nome;
+    }
 }

@@ -1,5 +1,8 @@
 package br.com.fourcamp.basico.exercicios.estudodecaso.consultamedica;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class Util {
@@ -60,5 +63,21 @@ public class Util {
             case 3 -> medico = (turno == 1) ? Medico.SEXTAMANHA : Medico.SEXTATARDE;
         }
         return medico;
+    }
+
+    public static List<Remedio> retornaRemedios(Medico medico) {
+        HashMap<Integer, Remedio> opcoes = Data.remedios;
+        List<Remedio> remedios = new ArrayList<>();
+        switch (medico) {
+            case SEGUNDAMANHA -> { remedios.add(opcoes.get(1));
+                remedios.add(opcoes.get(5)); }
+            case SEGUNDATARDE -> remedios.add(opcoes.get(2));
+            case QUARTAMANHA -> remedios.add(opcoes.get(3));
+            case QUARTATARDE -> remedios.add(opcoes.get(6));
+            case SEXTAMANHA -> { remedios.add(opcoes.get(3));
+                remedios.add(opcoes.get(6));}
+            case SEXTATARDE -> remedios.add(opcoes.get(4));
+        }
+        return remedios;
     }
 }

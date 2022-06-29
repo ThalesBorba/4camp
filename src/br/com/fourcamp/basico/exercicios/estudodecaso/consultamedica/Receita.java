@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Receita {
 
-    private static Integer superID;
+    private static Integer superID = 0;
     private Integer id;
     private String medico;
     private List<Remedio> remedios;

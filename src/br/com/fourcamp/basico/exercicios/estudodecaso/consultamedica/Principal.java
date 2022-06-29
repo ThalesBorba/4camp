@@ -6,7 +6,7 @@ public class Principal {
 
         Data.populateRemedios();
 
-
+        Communication.marcaConsulta();
 
     }
 }

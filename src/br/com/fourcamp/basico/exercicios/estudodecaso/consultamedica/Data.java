@@ -1,12 +1,13 @@
 package br.com.fourcamp.basico.exercicios.estudodecaso.consultamedica;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class Data {
 
-    private static HashMap<Integer, Remedio> remedios;
-    private static List<Receita> receitas;
+    public static HashMap<Integer, Remedio> remedios = new HashMap<>();
+    private static List<Receita> receitas = new ArrayList<>();
 
     public static void populateRemedios() {
         Remedio remedio1 = new Remedio("Rivotril", true);
@@ -25,6 +26,6 @@ public class Data {
 
     public static String prescreveReceita(Receita receita, String paciente, String convenio) {
         receitas.add(receita);
-        return "Paciente: " + paciente + "\nConvênio: " + convenio +  "\n\n " + receita.toString();
+        return "Paciente: " + paciente + "\nConvênio: " + convenio +  "\n\n" + receita.toString();
     }
 }

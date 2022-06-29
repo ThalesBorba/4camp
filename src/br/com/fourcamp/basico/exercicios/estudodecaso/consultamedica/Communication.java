@@ -1,16 +1,18 @@
 package br.com.fourcamp.basico.exercicios.estudodecaso.consultamedica;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Communication {
 
-    public void marcaConsulta() {
+    public static void marcaConsulta() {
         Scanner scanner = new Scanner(System.in);
+        Data data = new Data();
 
         System.out.println("-------- BEM-VINDO A NOSSA CLÍNICA --------");
 
         System.out.println("Digite seu nome: ");
-        String nome = scanner.next();
+        String paciente = scanner.nextLine();
 
         System.out.println("Possui convênio? Se sim digite o número do cartão. Se não, digite enter: ");
         String cartao = Util.validaConvênio(scanner);
@@ -22,11 +24,13 @@ public class Communication {
         Integer turno = Util.validaTurno(scanner);
 
         Medico medico = Util.retornaMedico(dia, turno);
+        List<Remedio> remedios = Util.retornaRemedios(medico);
 
-        //escolher remédio de acordo com o médico
+        Receita receita = new Receita(medico.getNome(), remedios);
 
 
-
+        System.out.println("\n" + data.prescreveReceita(receita, paciente, cartao));
+        System.out.println("\nObrigado pela preferência");
 
 
 
