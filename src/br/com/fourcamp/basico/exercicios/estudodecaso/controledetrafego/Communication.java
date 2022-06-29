@@ -5,16 +5,22 @@ import java.util.Scanner;
 public class Communication {
 	
 	static Aeronave aeronave = new Aeronave();
-	
-	Scanner sc = new Scanner(System.in);
-	
-	
-	public void menuInicial() {
+
+	public static void menuInicial(Scanner sc) {
 		
 		System.out.println("\n1- Cadastrar Aeronave \n2- Pousar Aeronave ");
+		Integer opcao = sc.nextInt();
+		if (opcao == 1) {
+			menuCadastroAeronave(sc);
+		} else if (opcao == 2) {
+			menuPlanoVoo(sc);
+		} else {
+			System.out.println("Opção inválida");
+			menuInicial(sc);
+		}
 	}
 	
-	public void menuCadastroAeronave() {
+	public static void menuCadastroAeronave(Scanner sc) {
 		
 		System.out.println("Informe sua matricula: ");
 		String matricula = sc.next();
@@ -28,42 +34,42 @@ public class Communication {
 		Data.salvaAeronave(matricula, cor, modelo);
 		
 	}
-	
-	
-	public void menuPlanoVoo() {
+
+
+	public static void menuPlanoVoo(Scanner sc) {
 
 
 
-			System.out.println("Informe sua matricula: ");
-			String matricula = sc.next();
+		System.out.println("Informe sua matricula: ");
+		String matricula = sc.next();
 
-			Aeronave aeronave = Data.recuperaAeronave(matricula);
+		Aeronave aeronave = Data.recuperaAeronave(matricula);
 
-			System.out.println("Informe o hor�rio: ");
-			Integer horario = sc.nextInt();
+		System.out.println("Informe o hor�rio: ");
+		Integer horario = sc.nextInt();
 
-			System.out.println("Informe o local de saida: ");
-			String localSaida = sc.next();
+		System.out.println("Informe o local de saida: ");
+		String localSaida = sc.next();
 
-			System.out.println("Informe o local de destino: ");
-			String localDestino = sc.next();
+		System.out.println("Informe o local de destino: ");
+		String localDestino = sc.next();
 
-			System.out.println("Informe o nivel de perigo da viagem escolhendo um n�mero: ");
+		System.out.println("Informe o nivel de perigo da viagem escolhendo um n�mero: ");
 
-			for (GrauPerigo perigo : GrauPerigo.values()) {
-				System.out.println(perigo.getKey() + " " + perigo.getDescription());
-			}
+		for (GrauPerigo perigo : GrauPerigo.values()) {
+			System.out.println(perigo.getKey() + " " + perigo.getDescription());
+		}
 
-			String option = sc.next();
+		String option = sc.next();
 
-			System.out.println("Sua solicita��o para pousar foi aceita.");
+		System.out.println("Sua solicita��o para pousar foi aceita.");
 
-			Data.salvaPlanoDeVoo(aeronave, horario, localSaida, localDestino);
+		Data.salvaPlanoDeVoo(aeronave, horario, localSaida, localDestino);
 
 
 
 	}
-	
-	
-	
+
+
+
 }
