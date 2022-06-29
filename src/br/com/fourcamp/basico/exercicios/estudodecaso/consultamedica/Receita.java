@@ -13,9 +13,9 @@ public class Receita {
     public String setIdentificador(List<Remedio> remedios) {
         for (Remedio remedio: remedios) {
             if (remedio.getIsControlado()) {
-                return "Controlada";
+                return "controlada";
             }
-        } return  "Não controlada";
+        } return  "não controlada";
     }
 
     public Receita(String medico, List<Remedio> remedios) {
@@ -24,5 +24,18 @@ public class Receita {
         this.medico = medico;
         this.remedios = remedios;
         this.identificador = setIdentificador(remedios);
+    }
+
+    @Override
+    public String toString() {
+        return "Receita " + identificador + " número " + id + ": \n" + remedios();
+    }
+
+    private StringBuilder remedios() {
+        StringBuilder remedioString = new StringBuilder();
+        for (Remedio remedio : this.remedios) {
+            remedioString.append(remedio.getNome()).append("\n");
+        }
+        return remedioString;
     }
 }

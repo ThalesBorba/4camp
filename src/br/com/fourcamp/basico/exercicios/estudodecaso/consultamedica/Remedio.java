@@ -8,4 +8,8 @@ public class Remedio {
     public Boolean getIsControlado() {
         return isControlado;
     }
+
+    public String getNome() {
+        return nome;
+    }
 }
